@@ -1,0 +1,20 @@
+<table class="table table-striped" *ngIf="products.length">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td *ngIf="firstRow">{{ product.id }}</td>
+        <td *ngIf="secondRow">{{ product.name }}</td>
+        <td *ngIf="thirdRow">{{ product.price }}</td>
+        <td *ngIf="firstRow">
+            <button class="btn btn-danger"
+                    (click)="deleteProduct(product.id)"
+            >
+                delete
+            </button>
+        </td>
+    </tr>
+</table>
