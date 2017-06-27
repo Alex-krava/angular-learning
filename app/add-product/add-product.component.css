@@ -1,0 +1,13 @@
+.form-control {
+    margin-bottom: 5px;
+}
+
+.add-product {
+    display: block;
+    margin: 10px 0;
+}
+
+.add-product > .btn {
+    margin-top: 5px;
+}
+

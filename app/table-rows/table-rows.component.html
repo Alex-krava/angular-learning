@@ -1,14 +1,33 @@
-<table class="table table-striped" *ngIf="products.length">
+<div class="form-group">
+
+    <add-product (addProductEvent)="addProductCatalog($event)"></add-product>
+
+    <label for="category">Сategories</label>
+    <select class="form-control" id="category"
+            (change)="filterProducts($event.target)"
+    >
+        <option value="All" disabled>Products categories</option>
+        <option *ngFor="let category of categories">
+            {{ category }}
+        </option>
+    </select>
+</div>
+<table class="table" *ngIf="products.length">
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Category</th>
         <th></th>
     </tr>
-    <tr *ngFor="let product of products">
+    <tr class="bg-danger text-white"
+        *ngFor="let product of productsFilter"
+        [ngClass]="{ 'bg-danger text-white': product.price > 500 }"
+    >
         <td *ngIf="firstRow">{{ product.id }}</td>
         <td *ngIf="secondRow">{{ product.name }}</td>
         <td *ngIf="thirdRow">{{ product.price }}</td>
+        <td *ngIf="thirdRow">{{ product.category }}</td>
         <td *ngIf="firstRow">
             <button class="btn btn-danger"
                     (click)="deleteProduct(product.id)"
