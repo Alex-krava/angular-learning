@@ -7,6 +7,8 @@ import { MyTableComponent }  from './my-table/my-table.component';
 import { GreetingsComponent }  from './greetings/greetings.component';
 import { TableRowsComponent }  from './table-rows/table-rows.component';
 import { AddProduct }  from './add-product/add-product.component';
+import { Products }  from './services/products.service';
+import { Data }  from './services/data.service';
 
 @NgModule({
     imports: [
@@ -14,7 +16,7 @@ import { AddProduct }  from './add-product/add-product.component';
         FormsModule,
         RouterModule.forRoot([
             {path: "", component: GreetingsComponent},
-            {path: "dz3", component: MyTableComponent}
+            {path: "dz4", component: MyTableComponent}
         ])
     ],
     declarations: [ AppComponent,
@@ -23,6 +25,7 @@ import { AddProduct }  from './add-product/add-product.component';
                     TableRowsComponent,
                     AddProduct
                     ],
+    providers: [ Products, Data ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@
         </option>
     </select>
 </div>
-<table class="table" *ngIf="products.length">
+<table class="table" *ngIf="productsFilter.length">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -22,16 +22,14 @@
     </tr>
     <tr class="bg-danger text-white"
         *ngFor="let product of productsFilter"
-        [ngClass]="{ 'bg-danger text-white': product.price > 500 }"
-    >
+        [ngClass]="{ 'bg-danger text-white': product.price > 500 }">
         <td *ngIf="firstRow">{{ product.id }}</td>
         <td *ngIf="secondRow">{{ product.name }}</td>
         <td *ngIf="thirdRow">{{ product.price }}</td>
         <td *ngIf="thirdRow">{{ product.category }}</td>
         <td *ngIf="firstRow">
             <button class="btn btn-danger"
-                    (click)="deleteProduct(product.id)"
-            >
+                    (click)="deleteProduct(product.id)">
                 delete
             </button>
         </td>
